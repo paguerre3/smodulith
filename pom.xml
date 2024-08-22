@@ -83,6 +83,7 @@
 	</dependencyManagement>
 
 	<build>
+		<defaultGoal>verify</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
