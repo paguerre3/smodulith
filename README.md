@@ -30,3 +30,5 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 - ⚠️ Modulith provides an application <b>Event Publication Registry</b> so if in the middle of the execution of an Event the application gets shutdown then, once reloaded, the Event can be recovered.
 - Documentation, Actuator and observability support.
 - ⚠️ Automatic externalization of events into Kafka, AMQP, potentially Redis.
+- Run <b>actuator profile</b>: <code>mvn clean install -Pactuator</code>.
+- <b>Kafka Containers</b> inside Spring is being used instead of using docker-compose with Kafka setup.
