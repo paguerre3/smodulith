@@ -16,5 +16,5 @@ var modules = ApplicationModules.of(App.class);
 System.out.println(modules);
 modules.verify();
 </code></pre>
-
+At the end, the validation checks that parts of one module that shouldn't be access to the others are valid according to a Clean approach.
 
