@@ -8,11 +8,13 @@ Legacy organization compared the Clean approach when project grows in size and c
 
 ---
 ### Modulith
-<code>var modules = ApplicationModules.of(App.class);
-<pr></pr>
+Using Modulith each package that belongs to the root one is being treated as a different Module, e.g. <code>customer, inventory and order<(b>. 
+In the following example of Modulith testing code, each module shows dependencies and visibility of beans (services, entities, record values, repos, aggregators, factories, etc.).
+<b>"+"</b> sign shows public beans while <b>"0"</b> displays private ones not visible for other modules. 
+<pre><code>
+var modules = ApplicationModules.of(App.class);
 System.out.println(modules);
-<pr></pr>
-modules.verify();</code>
-Each module shows dependencies and visibility of beans (services, entities, record values, repos, aggregators, factories, etc). 
-<b>"+"</b> sign shows public beans while <b>"0"</b> displays private ones not visible for other modules.
+modules.verify();
+</code></pre>
+
 
