@@ -61,6 +61,7 @@ public class EventPublishRegistryTests {
                     assertThat(failingAsyncTransactionalEventListener.getEx()).isNotNull();
                     assertThat(eventPublicationRegistry.findIncompletePublications()).hasSize(1);
                 });
+        System.out.println("###Scenario \"leavesPublicationIncompleteForFailingListener\" completed###");
     }
 
     @Getter
