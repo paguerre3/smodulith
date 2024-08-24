@@ -65,15 +65,20 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 
 ---
 ### Drawbacks of Microservices vs. Modular Monolith
-- ***MSA drawback***: Distributes components are more difficult to manage.
-- ***MSA drawback***: It requires a lot of infrastructure.
-- ***MSA drawback***: Refactor APIs is done ofter when boundary changes and it becomes hard to Maintain.
+***MSA drawback***: 
+- Distributes components are more difficult to manage.
+- It requires a lot of infrastructure.
+- Refactor APIs is done ofter when boundary changes and it becomes hard to Maintain.
 ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/03-modular-monolith.png?raw=true)
-- ***Modular Monolith***: <b>Fault tolerance</b> in the Monolith means that if the application goes down then the affectation isn't at a single process level/isolated module, i.e. affecting "all" modules included. 
-- ***Modular Monolith***: <b>Selective scaling</b> of only one Module affected isn't possible.
-- ***Modular Monolith***: Easier refactor of boundaries when APIs changes as it belongs to single repository.
-- ***Modular Monolith***: <b>Jmolecules</b> annotations helps Modulith in terms of providing <b>Domain Driven Design Annotations</b> linked to the architecture instead of technical annotations.
-- ***Modular Monolith***: DDD documentation renders in PlantUML format generated dynamically in "target" directory -see test <code>ModularityTests.renderDocumentation</code>.
-- ***Modular Monolith***: <b>zipkin</b> for tracing asynchronous processes of a common transaction, similar to newrelic), taking the time when event is being registered and the time that it takes to all the listeners to complete the process linked "everything associated to a single ID trace", e.g. OrderComplete event publish is listened by Inventory and Rewards updates which are processes that run in parallel associated to the same transaction ID.  
-  ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/04-zipkin.png?raw=true)
-- 
+***Modular Monolith***: 
+- <b>Fault tolerance</b> in the Monolith means that if the application goes down then the affectation isn't at a single process level/isolated module, i.e. affecting "all" modules included. 
+- <b>Selective scaling</b> of only one Module affected isn't possible.
+- Easier refactor of boundaries when APIs changes as it belongs to single repository.
+- <b>Jmolecules</b> annotations help Modulith in terms of providing <b>Domain Driven Design Annotations</b> linked to the architecture instead of technical annotations.
+- <b>DDD documentation renders</b> in PlantUML format generated dynamically in "target" directory -see test <code>ModularityTests.renderDocumentation</code>.
+- <b>zipkin</b> for tracing asynchronous processes of a common transaction, similar to newrelic, taking the total time when the event is being registered and the time that it takes for all the "listeners" to complete the transaction process linked ("everything being associated to a single traceable ID"), e.g. OrderComplete event publish is listened by Inventory and Rewards updates (listeners) which are processes that run in parallel associated to the same transaction ID.  
+![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/04-zipkin.png?raw=true)
+- <b>Externalization</b> of events into Kafka, AMQP, potentially Redis using annotation <code>@Externalized</code> makes it easy to transition into an "external messaging" system and allows communication with external services.
+- Legacy and Modularized can coexist using annotation <cod>@ApplicationModule(type=Type.OPEN)</code>.
+![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/05-legacy-and-modulith.png?raw=true)
+- Annotation ATM <code>@NamedInterface</code> is being used to <b>Expose</b> components or modules via package-info.java that are supposed to be internal by definition but we want to pass Modulith verifications, e.g. <b>Domain Event of type Records</b> registered under an <b>AggregateRoot</b> of a Domain layer package of a Module (not top-level package) that are being listened by an <code>ApplicationModuleListener</code> located in another Module under the Application Layer a.k.a. <code>DomainEventListener</code> service. 
