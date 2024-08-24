@@ -82,3 +82,12 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 - Legacy and Modularized can coexist using annotation <cod>@ApplicationModule(type=Type.OPEN)</code>.
 ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/05-legacy-and-modulith.png?raw=true)
 - Annotation ATM <code>@NamedInterface</code> is being used to <b>Expose</b> single java components or modules via package-info.java that are supposed to be internal by definition, but we want to pass Modulith verifications, e.g. <b>Domain Event of type Records</b> registered under an <b>AggregateRoot</b> of a Domain layer package of a Module (not top-level package) that are being listened by an <code>ApplicationModuleListener</code> located in another Module under the Application Layer a.k.a. <code>DomainEventListener</code> service. 
+- Annotation <code>@Modulithic(sharedModules="core")</code> added into the Main Spring Boot application class means that every isolated module when is loaded will also load "core" module, i.e. core is a shared module among all existent modules.
+
+
+---
+### Further samples
+***Forked Repository***
+- [Branch with Monolith and internal Events in details with Zipkin (observability profile)](https://github.com/paguerre3/spring-restbucks/tree/demos/cora/server).
+- [Branch with Monolith and messages externalized into Kafka](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-externalized). 
+- [Branch having a mix of Legacy and Monolith approach](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-legacy).
