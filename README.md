@@ -62,3 +62,14 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 1. ⚠️<b>Docker</b> must be running before executing <code>Maven tests</code>.
 2. <b>Alt A </b>: <b>KafkaContainer</b> under <code>TestSmodulithApplication</code> needs docker for running <code>Maven tests</code> -<code>EventPublishRegistryTests</code> must uncomment @Import including the Test Configuration that loads Kafka container.
 3. <b>Alt B (default)</b>: <code>docker-compose -f kafka.yml up -d</code> before running tests.
+
+---
+### Drawbacks of Microservices vs. Modular Monolith
+- ***MSA drawback***: Distributes components are more difficult to manage.
+- ***MSA drawback***: It requires a lot of infrastructure.
+- ***MSA drawback***: Refactor APIs is done ofter when boundary changes and it becomes hard to Maintain.
+![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/03-modular-monolith.png?raw=true)
+- ***Modular Monolith***: <b>Fault tolerance</b> in the Monolith means that if the application goes down then the affectation isn't at a single process level/isolated module, i.e. usually affecting "all" modules included. 
+- ***Modular Monolith***: <b>Selective scaling</b> of only one Module affected isn't possible.
+- ***Modular Monolith***: Easier refactor of boundaries when APIs changes as it belongs to single repository.}
+- ***Modular Monolith***: <b>Jmolecules</b> annotations helps Modulith in terms of providing <b>Domain Driven Design Annotations</b> linked to the architecture instead of technical annotations.
