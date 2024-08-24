@@ -69,7 +69,11 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 - ***MSA drawback***: It requires a lot of infrastructure.
 - ***MSA drawback***: Refactor APIs is done ofter when boundary changes and it becomes hard to Maintain.
 ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/03-modular-monolith.png?raw=true)
-- ***Modular Monolith***: <b>Fault tolerance</b> in the Monolith means that if the application goes down then the affectation isn't at a single process level/isolated module, i.e. usually affecting "all" modules included. 
+- ***Modular Monolith***: <b>Fault tolerance</b> in the Monolith means that if the application goes down then the affectation isn't at a single process level/isolated module, i.e. affecting "all" modules included. 
 - ***Modular Monolith***: <b>Selective scaling</b> of only one Module affected isn't possible.
-- ***Modular Monolith***: Easier refactor of boundaries when APIs changes as it belongs to single repository.}
+- ***Modular Monolith***: Easier refactor of boundaries when APIs changes as it belongs to single repository.
 - ***Modular Monolith***: <b>Jmolecules</b> annotations helps Modulith in terms of providing <b>Domain Driven Design Annotations</b> linked to the architecture instead of technical annotations.
+- ***Modular Monolith***: DDD documentation renders in PlantUML format generated dynamically in "target" directory -see test <code>ModularityTests.renderDocumentation</code>.
+- ***Modular Monolith***: <b>zipkin</b> for tracing asynchronous processes of a common transaction, similar to newrelic), taking the time when event is being registered and the time that it takes to all the listeners to complete the process linked "everything associated to a single ID trace", e.g. OrderComplete event publish is listened by Inventory and Rewards updates which are processes that run in parallel associated to the same transaction ID.  
+  ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/04-zipkin.png?raw=true)
+- 
