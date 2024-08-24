@@ -59,4 +59,4 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 
 ---
 ### Requirement
-- ⚠️ <b>Docker</b> must be running before executing <b>KafkaContainer</b> under <code></code>TestSmodulithApplication</code> when running <code>Maven tests</code>.
+⚠️ <b>Docker</b> must be running before executing <b>KafkaContainer</b> under <code></code>TestSmodulithApplication</code> when running <code>Maven tests</code>.
