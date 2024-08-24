@@ -17,7 +17,31 @@ System.out.println(modules);
 modules.verify();
 </code></pre>
 At the end, the validation checks that parts of one module that shouldn't be access to the other Modules are valid according to a Clean approach.
+<pre><code>
 
+# Inventory
+> Logical name: inventory
+> Base package: org.smodulith.inventory
+> Direct module dependencies: none
+> Spring beans:
+  + ….Inventory
+  o ….InventoryRepository
+  o ….InventorySettings
+
+# Customer
+> Logical name: customer
+> Base package: org.smodulith.customer
+> Direct module dependencies: none
+> Spring beans: none
+
+# Order
+> Logical name: order
+> Base package: org.smodulith.order
+> Direct module dependencies: none
+> Spring beans:
+  + ….OrderManagement
+  + ….OrderRepository
+</code></pre>
 
 ---
 ***Features and some implementation Notes***

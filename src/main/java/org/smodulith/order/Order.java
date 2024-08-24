@@ -52,7 +52,7 @@ public class Order extends AbstractAggregateRoot<Order> implements AggregateRoot
     }
 
     @Getter
-    static class LineItem implements Entity<Order, LineItem.LineItemId> {
+    class LineItem implements Entity<Order, LineItem.LineItemId> {
         private final LineItemId id;
         private final String description;
         private final long amount;
