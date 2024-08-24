@@ -36,7 +36,7 @@ public class TestSmodulithApplication {
     @Bean
     @ServiceConnection
     KafkaContainer kafkaContainer() {
-        System.out.println("KafkaContainer image run...");
+        System.out.println("###KafkaContainer image run...");
         return new KafkaContainer(DockerImageName.parse("apache/kafka-native:latest"));
     }
 
@@ -47,7 +47,7 @@ public class TestSmodulithApplication {
                 .getApplicationContext();
 
         var orders = ctx.getBean(OrderManagement.class);
-        orders.complete(new Order(new Customer.CustomerIdentifier(UUID.randomUUID())));
-        System.out.println("Order Complete from Kafka Container Done###");
+        var completed = orders.complete(new Order(new Customer.CustomerIdentifier(UUID.randomUUID())));
+        System.out.printf("###Order Complete from Kafka Container Done### %s%n", completed);
     }
 }

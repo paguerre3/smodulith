@@ -2,6 +2,7 @@ package org.smodulith.order;
 
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.ToString;
 import org.jmolecules.ddd.types.AggregateRoot;
 import org.jmolecules.ddd.types.Association;
 import org.jmolecules.ddd.types.Entity;
@@ -16,10 +17,13 @@ import java.util.List;
 import java.util.UUID;
 
 @Getter
+@ToString(onlyExplicitlyIncluded = true)
 @Table(name = "MyOrder")
 public class Order extends AbstractAggregateRoot<Order> implements AggregateRoot<Order, Order.OrderIdentifier> {
+    @ToString.Include
     private final OrderIdentifier id;
     private final Association<Customer, Customer.CustomerIdentifier> customer;
+    @ToString.Include
     private Status status;
     private final List<LineItem> lineItems = new ArrayList<>();
 
