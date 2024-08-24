@@ -33,6 +33,12 @@ import java.util.UUID;
 @TestConfiguration
 public class TestSmodulithApplication {
 
+    /**
+     * REQUIREMENT:
+     * Docker must be running before executing this test container!
+     *
+     * @return KafkaContainer
+     */
     @Bean
     @ServiceConnection
     KafkaContainer kafkaContainer() {
@@ -41,6 +47,7 @@ public class TestSmodulithApplication {
     }
 
     public static void main(String[] args) {
+        System.out.println("###About to load main context...");
         var ctx = SpringApplication.from(SmodulithApplication::main)
                 .with(TestSmodulithApplication.class)
                 .run(args)

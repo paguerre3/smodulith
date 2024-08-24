@@ -56,3 +56,7 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 - ⚠️ Automatic externalization of events into Kafka, AMQP, potentially Redis.
 - Run <b>actuator profile</b>: <code>mvn clean install -Pactuator</code>.
 - <b>Kafka Containers</b> inside Spring is being used instead of using docker-compose with Kafka setup.
+
+---
+### Requirement
+- ⚠️ <b>Docker</b> must be running before executing <b>KafkaContainer</b> under <code></code>TestSmodulithApplication</code> when running <code>Maven tests</code>.
