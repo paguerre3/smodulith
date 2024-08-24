@@ -89,5 +89,5 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 ### Further samples
 ***Forked Repository***
 - [Branch with Monolith and internal Events in details with Zipkin (observability profile)](https://github.com/paguerre3/spring-restbucks/tree/demos/cora/server).
-- [Branch with Monolith and messages externalized into Kafka](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-externalized). 
-- [Branch having a mix of Legacy and Monolith approach](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-legacy).
+- [Branch with Monolith and messages externalized into Kafka](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-externalized/server). 
+- [Branch having a mix of Legacy and Monolith approach](https://github.com/paguerre3/spring-restbucks/tree/demos/cora-legacy/server).
