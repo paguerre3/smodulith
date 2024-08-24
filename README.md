@@ -59,4 +59,6 @@ At the end, the validation checks that parts of one module that shouldn't be acc
 
 ---
 ### Requirement
-⚠️ <b>Docker</b> must be running before executing <b>KafkaContainer</b> under <code>TestSmodulithApplication</code> when running <code>Maven tests</code> (<code>EventPublishRegistryTests</code>).
+1. ⚠️<b>Docker</b> must be running before executing <code>Maven tests</code>.
+2. <b>Alt A </b>: <b>KafkaContainer</b> under <code>TestSmodulithApplication</code> needs docker for running <code>Maven tests</code> -<code>EventPublishRegistryTests</code> must uncomment @Import including the Test Configuration that loads Kafka container.
+3. <b>Alt B (default)</b>: <code>docker-compose -f kafka.yml up -d</code> before running tests.

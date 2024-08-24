@@ -21,11 +21,13 @@ import java.util.UUID;
 /**
  * The @Import annotation in Spring is a powerful mechanism for importing additional Java-based configuration classes
  * into the application context.
+ * NO NEED to set import of TestSmodulithApplication.class that
+ * has kafkaContainer if running docker-compose of kafka.yml.
  * The @DirtiesContext is used to reset the Spring context if needed.
  */
 @ApplicationModuleTest
 @RequiredArgsConstructor
-@Import({ EventPublishRegistryTests.FailingAsyncTransactionalEventListener.class, TestSmodulithApplication.class })
+@Import({ EventPublishRegistryTests.FailingAsyncTransactionalEventListener.class /*, TestSmodulithApplication.class*/ })
 @DirtiesContext
 @TestPropertySource(properties = "spring.modulith.events.externalization.enabled=true")
 public class EventPublishRegistryTests {
