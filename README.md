@@ -7,7 +7,7 @@ Legacy organization compared the Clean approach when project grows in size and c
 ![Screenshot](https://github.com/paguerre3/smodulith/blob/main/img/01-cohesion-vs-coupling.png?raw=true)
 
 ---
-### Modulith
+### Modulith (Modular Architecture for Monolith)
 Using Modulith each package that belongs to the root one is being treated as a different Module, e.g. <code>customer, inventory and order</code>. 
 In the following example of Modulith testing code, each module shows dependencies and visibility of beans (services, entities, record values, repos, aggregators, factories, etc.).
 <b>"+"</b> sign shows public beans while <b>"O"</b> displays private ones not visible for other modules. 
